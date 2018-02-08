@@ -1,4 +1,4 @@
-package cn.uncode.schedule.core;
+package com.para.schedule.core;
 
 import java.util.Date;
 
@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * 任务定义，提供关键信息给使用者
- * @author juny.ye
+ * @author para
  *
  */
 public class TaskDefine {

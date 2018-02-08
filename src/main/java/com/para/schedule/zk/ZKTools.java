@@ -1,4 +1,4 @@
-package cn.uncode.schedule.zk;
+package com.para.schedule.zk;
 
 import java.io.Writer;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import org.apache.zookeeper.data.Stat;
 /**
  * zk工具类
  * 
- * @author juny.ye
+ * @author para
  *
  */
 public class ZKTools {

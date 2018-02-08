@@ -1,4 +1,8 @@
-package cn.uncode.schedule.util;
+package com.para.schedule.util;
+
+import java.util.regex.Pattern;
+
+
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -13,7 +17,7 @@ import java.util.regex.Pattern;
 /**
  * 调度处理工具类
  * 
- * @author juny.ye
+ * @author para
  *
  */
 public class ScheduleUtil {

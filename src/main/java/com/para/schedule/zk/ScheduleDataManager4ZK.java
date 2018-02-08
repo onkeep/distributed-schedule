@@ -1,4 +1,4 @@
-package cn.uncode.schedule.zk;
+package com.para.schedule.zk;
 
 import java.lang.reflect.Type;
 import java.sql.Timestamp;
@@ -29,15 +29,15 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
-import cn.uncode.schedule.DynamicTaskManager;
-import cn.uncode.schedule.core.IScheduleDataManager;
-import cn.uncode.schedule.core.ScheduleServer;
-import cn.uncode.schedule.core.TaskDefine;
+import com.para.schedule.DynamicTaskManager;
+import com.para.schedule.core.IScheduleDataManager;
+import com.para.schedule.core.ScheduleServer;
+import com.para.schedule.core.TaskDefine;
 
 /**
  * zk实现类
  * 
- * @author juny.ye
+ * @author para
  *
  */
 public class ScheduleDataManager4ZK implements IScheduleDataManager {
@@ -47,27 +47,27 @@ public class ScheduleDataManager4ZK implements IScheduleDataManager {
 	private static final String NODE_TASK = "task";
 	private static final long SERVER_EXPIRE_TIME = 5000 * 3;
 	private Gson gson ;
-	private ZKManager zkManager;
+	private com.para.schedule.zk.ZKManager zkManager;
 	private String pathServer;
 	private String pathTask;
 	private long zkBaseTime = 0;
 	private long loclaBaseTime = 0;
 	private Random random;
 	
-    public ScheduleDataManager4ZK(ZKManager aZkManager) throws Exception {
+    public ScheduleDataManager4ZK(com.para.schedule.zk.ZKManager aZkManager) throws Exception {
     	this.zkManager = aZkManager;
     	gson = new GsonBuilder().registerTypeAdapter(Timestamp.class,new TimestampTypeAdapter()).setDateFormat("yyyy-MM-dd HH:mm:ss").create();
 		this.pathServer = this.zkManager.getRootPath() +"/" + NODE_SERVER;
 		this.pathTask = this.zkManager.getRootPath() +"/" + NODE_TASK;
 		this.random = new Random();
 		if (this.getZooKeeper().exists(this.pathServer, false) == null) {
-			ZKTools.createPath(getZooKeeper(),this.pathServer, CreateMode.PERSISTENT, this.zkManager.getAcl());
+			com.para.schedule.zk.ZKTools.createPath(getZooKeeper(),this.pathServer, CreateMode.PERSISTENT, this.zkManager.getAcl());
 		}
 		loclaBaseTime = System.currentTimeMillis();
         String tempPath = this.zkManager.getZooKeeper().create(this.zkManager.getRootPath() + "/systime",null, this.zkManager.getAcl(), CreateMode.EPHEMERAL_SEQUENTIAL);
         Stat tempStat = this.zkManager.getZooKeeper().exists(tempPath, false);
         zkBaseTime = tempStat.getCtime();
-        ZKTools.deleteTree(getZooKeeper(), tempPath);
+        com.para.schedule.zk.ZKTools.deleteTree(getZooKeeper(), tempPath);
         if(Math.abs(this.zkBaseTime - this.loclaBaseTime) > 5000){
         	LOG.error("请注意，Zookeeper服务器时间与本地时间相差 ： " + Math.abs(this.zkBaseTime - this.loclaBaseTime) +" ms");
         }
@@ -141,7 +141,7 @@ public class ScheduleDataManager4ZK implements IScheduleDataManager {
 				Stat stat = new Stat();
 				this.getZooKeeper().getData(zkPath + "/" + name, null, stat);
 				if (getSystemTime() - stat.getMtime() > SERVER_EXPIRE_TIME) {
-					ZKTools.deleteTree(this.getZooKeeper(), zkPath + "/" + name);
+					com.para.schedule.zk.ZKTools.deleteTree(this.getZooKeeper(), zkPath + "/" + name);
 					LOG.debug("ScheduleServer[" + zkPath + "/" + name + "]过期清除");
 				}
 			} catch (Exception e) {
@@ -170,14 +170,14 @@ public class ScheduleDataManager4ZK implements IScheduleDataManager {
 				for (String taskName : children) {
 					String taskPath = zkPath + "/" + taskName;
 					if (this.getZooKeeper().exists(taskPath, false) != null) {
-						ZKTools.deleteTree(this.getZooKeeper(), taskPath + "/" + server.getUuid());
+						com.para.schedule.zk.ZKTools.deleteTree(this.getZooKeeper(), taskPath + "/" + server.getUuid());
 					}
 				}
 			}
 
 			//删除
 			if (this.getZooKeeper().exists(this.pathServer, false) == null) {
-				ZKTools.deleteTree(this.getZooKeeper(), serverPath + serverPath + "/" + server.getUuid());
+				com.para.schedule.zk.ZKTools.deleteTree(this.getZooKeeper(), serverPath + serverPath + "/" + server.getUuid());
 			}
 			server.setRegister(false);
 		}
@@ -238,7 +238,7 @@ public class ScheduleDataManager4ZK implements IScheduleDataManager {
 								 hasAssignSuccess = true;
 								 continue;
 							 }
-							 ZKTools.deleteTree(this.getZooKeeper(), taskPath + "/" + serverId);
+							 com.para.schedule.zk.ZKTools.deleteTree(this.getZooKeeper(), taskPath + "/" + serverId);
 						 }
 						 if (!hasAssignSuccess) {
 							 assignServer2Task(taskServerList, taskPath);

@@ -1,4 +1,4 @@
-package cn.uncode.schedule.web;
+package com.para.schedule.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 
-import cn.uncode.schedule.ConsoleManager;
-import cn.uncode.schedule.core.TaskDefine;
+import com.para.schedule.ConsoleManager;
+import com.para.schedule.core.TaskDefine;
 
 
 @WebServlet(name="schedule",urlPatterns="/uncode/schedule")

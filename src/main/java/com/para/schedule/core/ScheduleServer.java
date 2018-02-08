@@ -1,15 +1,15 @@
-package cn.uncode.schedule.core;
+package com.para.schedule.core;
 
 import java.sql.Timestamp;
 import java.util.UUID;
 
-import cn.uncode.schedule.util.ScheduleUtil;
+import com.para.schedule.util.ScheduleUtil;
 
 
 /**
  * 调度服务器信息定义
  * 
- * @author juny.ye
+ * @author para
  *
  */
 public class ScheduleServer {

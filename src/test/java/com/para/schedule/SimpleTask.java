@@ -1,11 +1,14 @@
-package cn.uncode.schedule;
+/*
+ * Copyright (C) 2018 Baidu, Inc. All Rights Reserved.
+ */
+package com.para.schedule;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 
 /**
- * @author juny.ye
+ * @author para
  */
 @Component
 public class SimpleTask {

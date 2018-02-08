@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/task/spring-task-3.0.xsd">
         
         
-	    <bean id="zkScheduleManager" class="cn.uncode.schedule.ZKScheduleManager"
+	    <bean id="zkScheduleManager" class="com.para.schedule.ZKScheduleManager"
 			init-method="init">
 			<property name="zkConfig">
 		           <map>
@@ -23,10 +23,10 @@
 		</bean>	
 
 
-	    <bean id="taskObj" class="cn.uncode.schedule.SimpleTask"/>
+	    <bean id="taskObj" class="com.para.schedule.SimpleTask"/>
 	
 	    <!-- 定义调用对象和调用对象的方法 -->
-        <bean id="jobtask" class="cn.uncode.schedule.quartz.MethodInvokingJobDetailFactoryBean">
+        <bean id="jobtask" class="com.para.schedule.quartz.MethodInvokingJobDetailFactoryBean">
             <!-- 调用的类 -->
             <property name="targetObject" ref="taskObj" />
             <!-- 调用类中的方法 -->

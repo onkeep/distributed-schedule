@@ -1,4 +1,7 @@
-package cn.uncode.schedule;
+/*
+ * Copyright (C) 2018 Baidu, Inc. All Rights Reserved.
+ */
+package com.para.schedule;
 
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -15,12 +18,12 @@ import org.apache.zookeeper.server.auth.DigestAuthenticationProvider;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.uncode.schedule.core.TaskDefine;
-import cn.uncode.schedule.zk.ZKTools;
+import com.para.schedule.core.TaskDefine;
+import com.para.schedule.zk.ZKTools;
 
 
 /**
- * @author juny.ye
+ * @author para
  */
 public class ZookeeperTest {
 	@Test

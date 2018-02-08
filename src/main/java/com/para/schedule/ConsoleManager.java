@@ -1,4 +1,4 @@
-package cn.uncode.schedule;
+package com.para.schedule;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cn.uncode.schedule.core.TaskDefine;
+import com.para.schedule.ZKScheduleManager;
+import com.para.schedule.core.TaskDefine;
 
 
 

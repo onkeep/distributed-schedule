@@ -1,5 +1,5 @@
 
-package cn.uncode.schedule.quartz;
+package com.para.schedule.quartz;
 
 /*
  * Copyright 2002-2012 the original author or authors.
@@ -47,8 +47,8 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.MethodInvoker;
 import org.springframework.util.ReflectionUtils;
 
-import cn.uncode.schedule.ConsoleManager;
-import cn.uncode.schedule.util.ScheduleUtil;
+import com.para.schedule.ConsoleManager;
+import com.para.schedule.util.ScheduleUtil;
 
 /**
  * {@link org.springframework.beans.factory.FactoryBean} that exposes a

@@ -1,4 +1,4 @@
-package cn.uncode.schedule.core;
+package com.para.schedule.core;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 调度配置中心客户端接口，可以有基于数据库的实现，可以有基于ConfigServer的实现
  * 
- * @author juny.ye
+ * @author para
  * 
  */
 public interface IScheduleDataManager{
@@ -17,7 +17,7 @@ public interface IScheduleDataManager{
      * @param server
      * @throws Exception
      */
-	public boolean refreshScheduleServer(ScheduleServer server) throws Exception;
+	public boolean refreshScheduleServer(com.para.schedule.core.ScheduleServer server) throws Exception;
 
     /**
      * 注册服务器
@@ -25,12 +25,12 @@ public interface IScheduleDataManager{
      * @param server
      * @throws Exception
      */
-    public void registerScheduleServer(ScheduleServer server) throws Exception;
+    public void registerScheduleServer(com.para.schedule.core.ScheduleServer server) throws Exception;
 
     
     public boolean isLeader(String uuid,List<String> serverList);
 
-	public void unRegisterScheduleServer(ScheduleServer server) throws Exception;
+	public void unRegisterScheduleServer(com.para.schedule.core.ScheduleServer server) throws Exception;
 
 	public void clearExpireScheduleServer() throws Exception;
 	
@@ -41,9 +41,9 @@ public interface IScheduleDataManager{
 	
 	public boolean isOwner(String name, String uuid)throws Exception;
 	
-	public void addTask(TaskDefine taskDefine)throws Exception;
+	public void addTask(com.para.schedule.core.TaskDefine taskDefine)throws Exception;
 	
-	public void updateTask(TaskDefine taskDefine)throws Exception;
+	public void updateTask(com.para.schedule.core.TaskDefine taskDefine)throws Exception;
 	
 	/**
 	 * addTask中存储的Key由对象本身的字符串组成，此方法实现重载
@@ -54,13 +54,13 @@ public interface IScheduleDataManager{
 	@Deprecated
 	public void delTask(String targetBean, String targetMethod)throws Exception;
 	
-	public void delTask(TaskDefine taskDefine) throws Exception;
+	public void delTask(com.para.schedule.core.TaskDefine taskDefine) throws Exception;
 	
-	public List<TaskDefine> selectTask()throws Exception;
+	public List<com.para.schedule.core.TaskDefine> selectTask()throws Exception;
 	
 	public boolean checkLocalTask(String currentUuid)throws Exception;
 	
-	public boolean isExistsTask(TaskDefine taskDefine) throws Exception;
+	public boolean isExistsTask(com.para.schedule.core.TaskDefine taskDefine) throws Exception;
     
 	public boolean saveRunningInfo(String name, String uuid)throws Exception;
     

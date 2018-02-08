@@ -1,13 +1,13 @@
-package cn.uncode.schedule.core;
+package com.para.schedule.core;
 
 /**
  * 
- * @author juny.ye
+ * @author para
  *
  */
 public class Version {
 	
-   private final static String version="uncode-schedule-1.0.0";
+   private final static String version="distributed-schedule-1.0.0";
    
    public static String getVersion(){
 	   return version;

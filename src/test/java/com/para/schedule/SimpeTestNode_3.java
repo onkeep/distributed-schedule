@@ -1,9 +1,12 @@
-package cn.uncode.schedule;
+/*
+ * Copyright (C) 2018 Baidu, Inc. All Rights Reserved.
+ */
+package com.para.schedule;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * @author juny.ye
+ * @author para
  */
 public class SimpeTestNode_3 {
 

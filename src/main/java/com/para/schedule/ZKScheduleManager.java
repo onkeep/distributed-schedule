@@ -1,4 +1,4 @@
-package cn.uncode.schedule;
+package com.para.schedule;
 
 import java.lang.reflect.Method;
 import java.util.Date;
@@ -20,17 +20,17 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.scheduling.Trigger;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
-import cn.uncode.schedule.core.IScheduleDataManager;
-import cn.uncode.schedule.core.ScheduleServer;
-import cn.uncode.schedule.core.ScheduledMethodRunnable;
-import cn.uncode.schedule.util.ScheduleUtil;
-import cn.uncode.schedule.zk.ScheduleDataManager4ZK;
-import cn.uncode.schedule.zk.ZKManager;
+import com.para.schedule.core.IScheduleDataManager;
+import com.para.schedule.core.ScheduleServer;
+import com.para.schedule.core.ScheduledMethodRunnable;
+import com.para.schedule.util.ScheduleUtil;
+import com.para.schedule.zk.ScheduleDataManager4ZK;
+import com.para.schedule.zk.ZKManager;
 
 /**
  * 调度器核心管理
  * 
- * @author juny.ye
+ * @author para
  * 
  */
 public class ZKScheduleManager extends ThreadPoolTaskScheduler implements ApplicationContextAware {
