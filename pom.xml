@@ -8,7 +8,7 @@
   <packaging>jar</packaging>
 
   <name>schedule</name>
-  <description>Job scheduler</description>
+  <description>JobScheduler</description>
   
   	<licenses>
 		<license>
